@@ -1,8 +1,5 @@
 #!/bin/bash -e
-image_repo="centos7-systemd"
-image_tag="latest"
-docker_image="${image_repo}:${image_tag}"
-container_name="c7_test"
+source set_vars.sh
 
 # Build docker image by Dockerfile
 docker images | grep ${image_repo} | grep | ${image_tag} || docker build --rm -t ${image_repo}:${image_tag} .
@@ -26,4 +23,3 @@ fi
 
 # Build Repo
 docker exec -it ${container_name} bash /workdir/01_setup.sh
-docker exec -it ${container_name} bash
