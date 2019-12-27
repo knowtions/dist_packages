@@ -1,7 +1,12 @@
+*.bak
+*.deb
+*.rpm
+*.run
+*.swp
 .DS_Store
 .env
 .idea/*
-*.deb
-*.rpm
-*.swp
-*.bak
+builddir
+download
+repodata
+dest
