@@ -71,8 +71,8 @@ http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-headers-3.10.0-957.el
 http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-devel-3.10.0-1062.el7.x86_64.rpm
 http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-debug-devel-3.10.0-1062.el7.x86_64.rpm
 http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-headers-3.10.0-1062.el7.x86_64.rpm
-# nvidia driver
-http://us.download.nvidia.com/tesla/440.33.01/nvidia-driver-local-repo-rhel7-440.33.01-1.0-1.x86_64.rpm
+# nvidia driver, use runfile instead
+# http://us.download.nvidia.com/tesla/440.33.01/nvidia-driver-local-repo-rhel7-440.33.01-1.0-1.x86_64.rpm
 "
 
 dl_links=()
