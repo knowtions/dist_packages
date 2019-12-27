@@ -2,7 +2,7 @@
 source set_vars.sh
 
 # Build docker image by Dockerfile
-docker images | grep ${image_repo} | grep | ${image_tag} || docker build --rm -t ${image_repo}:${image_tag} .
+docker images | grep ${image_repo} | grep ${image_tag} || docker build --rm -t ${image_repo}:${image_tag} .
 
 # Create container for building repo
 if [[ ${1} == "-f" ]] && [[ -n `docker ps --filter "name=${container_name}" -qa` ]]; then
