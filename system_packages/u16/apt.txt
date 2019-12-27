@@ -1,0 +1,43 @@
+ack-grep
+ansible
+apt-transport-https
+arping
+ca-certificates
+ceph-common
+ceph-fuse
+curl
+dirmngr
+docker-ce
+gcc-5
+ipcalc
+iptables
+libpython3.6-dev
+nfs-common
+nginx
+nvidia-container-toolkit
+pciutils
+pgpool2
+postgresql-client
+postgresql-client-10
+postgresql-client-common
+postgresql-common
+python
+python-dev
+python-pip
+python-selinux
+python-simplejson
+python3-pip
+python3-selinux
+python3.6
+python3.6-dev
+screen
+software-properties-common
+vim
+
+
+# xserver-xorg-video-nvidia-418
+xserver-xorg-core
+# cuda-10-0
+# libcudnn7=7.4.1.5-1+cuda10.0
+# cuda-drivers
+# gcc-5=5.4.0-6ubuntu1~16.04.11

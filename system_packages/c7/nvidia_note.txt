@@ -1,0 +1,42 @@
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install ./epel-release-latest-*.noarch.rpm
+
+
+# yum groupinstall "Development Tools"
+yum install gcc dkms kernel-devel-$(uname -r) kernel-headers-$(uname -r)
+# download nvidia-driver
+curl http://us.download.nvidia.com/tesla/410.129/NVIDIA-Linux-x86_64-410.129-diagnostic.run \
+    -o NVIDIA-Linux-x86_64-410.129-diagnostic.run
+
+rpm -qa | grep -E "kernel-devel|kernel-headers|gcc"
+bash NVIDIA-Linux-x86_64-410.129-diagnostic.run -s \
+    --kernel-source-path /usr/src/kernels/$(uname -r)
+
+# nvidia-container-toolkit == nvidia runtime
+curl -s -L https://nvidia.github.io/nvidia-docker/centos7/nvidia-docker.repo | \
+    tee /etc/yum.repos.d/nvidia-docker.repo
+
+yum install -y nvidia-container-toolkit nvidia-container-runtime
+
+
+# for container-selinux  #  2:2.107-3.el7
+subscription-manager repos --enable=rhel-7-server-extras-rpms
+# http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
+
+# docker-ce
+yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+yum install -y container-selinux docker-ce docker-ce-cli containerd.io
+systemctl restart docker
+
+
+## update /etc/docker/daemon.json
+#  docker_runtimes: '"runtimes": {"nvidia": {"path": "/usr/bin/nvidia-container-runtime", "runtimeArgs": []}},'
+## test nvidia runtime
+## docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi 

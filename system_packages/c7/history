@@ -1,0 +1,55 @@
+    1  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    2  yum install wget
+    3  yum install gcc dkms kernel-devel-$(uname -r) kernel-headers-$(uname -r)
+    4  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    5  yum install ./epel-release-latest-*.noarch.rpm
+    6  yum install -y gcc dkms kernel-devel-$(uname -r) kernel-headers-$(uname -r)
+    7  curl http://us.download.nvidia.com/tesla/410.129/NVIDIA-Linux-x86_64-410.129-diagnostic.run -o NVIDIA-Linux-x86_64-410.129-diagnostic.run
+    8  rpm -qa | grep -E "kernel-devel|kernel-headers|gcc"
+    9  bash NVIDIA-Linux-x86_64-410.129-diagnostic.run -s     --kernel-source-path /usr/src/kernels/$(uname -r)
+   10  ls /usr/lib64/xorg/modules
+   11  yum install -y container-selinux docker-c
+   12  yum install -y yum-utils   device-mapper-persistent-data   lvm
+   13   yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+   14  yum install -y container-selinux docker-ce
+   15  subscription-manager register --username alvin_wu --password SdU9j3zZCj --auto-attach
+   16  subscription-manager repos --enable=rhel-7-server-extras-rpms
+   17  yum install -y container-selinux docker-ce
+   18  yum remove -y container-selinux docker-ce
+   19  curl -s -L https://nvidia.github.io/nvidia-docker/centos7/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
+   20  yum install -y nvidia-container-toolkit nvidia-container-runtime
+   21  yum install -y container-selinux docker-ce
+   22  yum remove -y container-selinux docker-ce
+   23  mkdir /etc/docker/daemon.json
+   24  mkdir -p /etc/docker
+   25  vim /etc/docker/daemon.json
+   26  vi /etc/docker/daemon.json
+   27  yum install -y container-selinux docker-ce
+   28  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+   29  exit
+   30  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+   31  systemctl start docker
+   32  docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+   33  nvidia-smi
+   34  ls
+   35  ls -al
+   36  cd /
+   37  ls
+   38  cd tmp/
+   39  l
+   40  ls
+   41  cd
+   42  cd /home/
+   43  ls
+   44  cd lydia/
+   45  ls
+   46  cd ..
+   47  ls
+   48  cd ec2-user/
+   49  ls
+   50  ls -al
+   51  cd
+   52  ls
+   53  ls -al
+   54  history
+   55  history > history

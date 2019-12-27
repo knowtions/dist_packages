@@ -1,0 +1,966 @@
+==========================================================
+RUN command at 2019-12-27 16:19:09
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+----------
+Loaded plugins: fastestmirror, ovl
+adding repo from: https://download.docker.com/linux/centos/docker-ce.repo
+grabbing file https://download.docker.com/linux/centos/docker-ce.repo to /etc/yum.repos.d/docker-ce.repo
+repo saved to /etc/yum.repos.d/docker-ce.repo
+==========================================================
+RUN command at 2019-12-27 16:19:10
+rpm --import https://download.ceph.com/keys/release.asc
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:10
+rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm
+----------
+Retrieving https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm
+Preparing...                          ########################################
+	package ceph-release-1-1.el7.noarch is already installed
+Failed with command -- rpm -Uvh https://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm
+==========================================================
+RUN command at 2019-12-27 16:19:10
+yum clean all
+----------
+Loaded plugins: fastestmirror, ovl
+Cleaning repos: Ceph Ceph-noarch base ceph-source docker-ce-stable epel extras
+              : pgdg10 pgdg11 pgdg12 pgdg94 pgdg95 pgdg96 pgpool41 updates
+Cleaning up list of fastest mirrors
+==========================================================
+RUN command at 2019-12-27 16:19:11
+yum-complete-transaction
+----------
+Loaded plugins: fastestmirror, ovl
+Determining fastest mirrors
+ * base: mirror.sesp.northwestern.edu
+ * epel: mirror.steadfastnet.com
+ * extras: mirrors.gigenet.com
+ * updates: mirror.steadfastnet.com
+No unfinished transactions left.
+==========================================================
+RUN command at 2019-12-27 16:19:20
+yum update -y
+----------
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.sesp.northwestern.edu
+ * epel: mirror.steadfastnet.com
+ * extras: mirrors.gigenet.com
+ * updates: mirror.steadfastnet.com
+No packages marked for update
+==========================================================
+RUN command at 2019-12-27 16:19:21
+yum install -y epel-release
+----------
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.sesp.northwestern.edu
+ * epel: mirror.steadfastnet.com
+ * extras: mirrors.gigenet.com
+ * updates: mirror.steadfastnet.com
+Package epel-release-7-12.noarch already installed and latest version
+Nothing to do
+==========================================================
+RUN command at 2019-12-27 16:19:21
+yum install -y vim sudo wget yum-utils createrepo
+----------
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.sesp.northwestern.edu
+ * epel: mirror.steadfastnet.com
+ * extras: mirrors.gigenet.com
+ * updates: mirror.steadfastnet.com
+Package 2:vim-enhanced-7.4.629-6.el7.x86_64 already installed and latest version
+Package sudo-1.8.23-4.el7_7.1.x86_64 already installed and latest version
+Package wget-1.14-18.el7_6.1.x86_64 already installed and latest version
+Package yum-utils-1.1.31-52.el7.noarch already installed and latest version
+Package createrepo-0.9.9-28.el7.noarch already installed and latest version
+Nothing to do
+==========================================================
+RUN command at 2019-12-27 16:19:22
+yum install -y http://www.pgpool.net/yum/rpms/4.1/redhat/rhel-7-x86_64/pgpool-II-release-4.1-1.noarch.rpm
+----------
+Loaded plugins: fastestmirror, ovl
+Examining /var/tmp/yum-root-qLHInZ/pgpool-II-release-4.1-1.noarch.rpm: pgpool-II-release-4.1-1.noarch
+/var/tmp/yum-root-qLHInZ/pgpool-II-release-4.1-1.noarch.rpm: does not update installed package.
+Error: Nothing to do
+Failed with command -- yum install -y http://www.pgpool.net/yum/rpms/4.1/redhat/rhel-7-x86_64/pgpool-II-release-4.1-1.noarch.rpm
+==========================================================
+RUN command at 2019-12-27 16:19:23
+yum install -y https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
+----------
+Loaded plugins: fastestmirror, ovl
+Examining /var/tmp/yum-root-qLHInZ/pgdg-redhat10-10-2.noarch.rpm: pgdg-redhat-repo-42.0-5.noarch
+/var/tmp/yum-root-qLHInZ/pgdg-redhat10-10-2.noarch.rpm: does not update installed package.
+Error: Nothing to do
+Failed with command -- yum install -y https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
+==========================================================
+RUN command at 2019-12-27 16:19:24
+mkdir -p download
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:24
+cd download
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-devel-3.10.0-123.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-devel-3.10.0-123.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9314124 (8.9M) [application/x-rpm]
+Server file no newer than local file 'kernel-devel-3.10.0-123.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-debug-devel-3.10.0-123.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-debug-devel-3.10.0-123.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9376372 (8.9M) [application/x-rpm]
+Server file no newer than local file 'kernel-debug-devel-3.10.0-123.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-headers-3.10.0-123.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-headers-3.10.0-123.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1489100 (1.4M) [application/x-rpm]
+Server file no newer than local file 'kernel-headers-3.10.0-123.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-devel-3.10.0-229.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-devel-3.10.0-229.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10342632 (9.9M) [application/x-rpm]
+Server file no newer than local file 'kernel-devel-3.10.0-229.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-debug-devel-3.10.0-229.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-debug-devel-3.10.0-229.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10403604 (9.9M) [application/x-rpm]
+Server file no newer than local file 'kernel-debug-devel-3.10.0-229.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-headers-3.10.0-229.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-headers-3.10.0-229.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2386560 (2.3M) [application/x-rpm]
+Server file no newer than local file 'kernel-headers-3.10.0-229.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-devel-3.10.0-327.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-devel-3.10.0-327.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 11470988 (11M) [application/x-rpm]
+Server file no newer than local file 'kernel-devel-3.10.0-327.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-debug-devel-3.10.0-327.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-debug-devel-3.10.0-327.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 11535248 (11M) [application/x-rpm]
+Server file no newer than local file 'kernel-debug-devel-3.10.0-327.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-headers-3.10.0-327.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-headers-3.10.0-327.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3326108 (3.2M) [application/x-rpm]
+Server file no newer than local file 'kernel-headers-3.10.0-327.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-devel-3.10.0-514.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-devel-3.10.0-514.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 13490796 (13M) [application/x-rpm]
+Server file no newer than local file 'kernel-devel-3.10.0-514.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-debug-devel-3.10.0-514.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-debug-devel-3.10.0-514.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 13554768 (13M) [application/x-rpm]
+Server file no newer than local file 'kernel-debug-devel-3.10.0-514.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-headers-3.10.0-514.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-headers-3.10.0-514.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5001232 (4.8M) [application/x-rpm]
+Server file no newer than local file 'kernel-headers-3.10.0-514.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-devel-3.10.0-693.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-devel-3.10.0-693.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 14996040 (14M) [application/x-rpm]
+Server file no newer than local file 'kernel-devel-3.10.0-693.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-debug-devel-3.10.0-693.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-debug-devel-3.10.0-693.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15061520 (14M) [application/x-rpm]
+Server file no newer than local file 'kernel-debug-devel-3.10.0-693.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-headers-3.10.0-693.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-headers-3.10.0-693.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 6247648 (6.0M) [application/x-rpm]
+Server file no newer than local file 'kernel-headers-3.10.0-693.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-devel-3.10.0-862.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-devel-3.10.0-862.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16424580 (16M) [application/x-rpm]
+Server file no newer than local file 'kernel-devel-3.10.0-862.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:24
+wget -N http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-debug-devel-3.10.0-862.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:24--  http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-debug-devel-3.10.0-862.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16491500 (16M) [application/x-rpm]
+Server file no newer than local file 'kernel-debug-devel-3.10.0-862.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+wget -N http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-headers-3.10.0-862.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:25--  http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-headers-3.10.0-862.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7442492 (7.1M) [application/x-rpm]
+Server file no newer than local file 'kernel-headers-3.10.0-862.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+wget -N http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-devel-3.10.0-957.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:25--  http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-devel-3.10.0-957.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17515040 (17M) [application/x-rpm]
+Server file no newer than local file 'kernel-devel-3.10.0-957.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+wget -N http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-debug-devel-3.10.0-957.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:25--  http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-debug-devel-3.10.0-957.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17581280 (17M) [application/x-rpm]
+Server file no newer than local file 'kernel-debug-devel-3.10.0-957.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+wget -N http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-headers-3.10.0-957.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:25--  http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-headers-3.10.0-957.el7.x86_64.rpm
+Resolving vault.centos.org (vault.centos.org)... 108.61.16.227, 2001:19f0:0:2a:225:90ff:fe08:f840
+Connecting to vault.centos.org (vault.centos.org)|108.61.16.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8355364 (8.0M) [application/x-rpm]
+Server file no newer than local file 'kernel-headers-3.10.0-957.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+wget -N http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-devel-3.10.0-1062.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:25--  http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-devel-3.10.0-1062.el7.x86_64.rpm
+Resolving mirror.centos.org (mirror.centos.org)... 199.38.241.10, 2607:f7c0:1:14c0:c0f0:a600:0:a5
+Connecting to mirror.centos.org (mirror.centos.org)|199.38.241.10|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 18432564 (18M) [application/x-rpm]
+Server file no newer than local file 'kernel-devel-3.10.0-1062.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+wget -N http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-debug-devel-3.10.0-1062.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:25--  http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-debug-devel-3.10.0-1062.el7.x86_64.rpm
+Resolving mirror.centos.org (mirror.centos.org)... 199.38.241.10, 2607:f7c0:1:14c0:c0f0:a600:0:a5
+Connecting to mirror.centos.org (mirror.centos.org)|199.38.241.10|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 18503652 (18M) [application/x-rpm]
+Server file no newer than local file 'kernel-debug-devel-3.10.0-1062.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+wget -N http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-headers-3.10.0-1062.el7.x86_64.rpm
+----------
+--2019-12-27 16:19:25--  http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-headers-3.10.0-1062.el7.x86_64.rpm
+Resolving mirror.centos.org (mirror.centos.org)... 199.38.241.10, 2607:f7c0:1:14c0:c0f0:a600:0:a5
+Connecting to mirror.centos.org (mirror.centos.org)|199.38.241.10|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9142584 (8.7M) [application/x-rpm]
+Server file no newer than local file 'kernel-headers-3.10.0-1062.el7.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+wget -N http://us.download.nvidia.com/tesla/440.33.01/nvidia-driver-local-repo-rhel7-440.33.01-1.0-1.x86_64.rpm
+----------
+--2019-12-27 16:19:25--  http://us.download.nvidia.com/tesla/440.33.01/nvidia-driver-local-repo-rhel7-440.33.01-1.0-1.x86_64.rpm
+Resolving us.download.nvidia.com (us.download.nvidia.com)... 192.229.211.70, 2606:2800:21f:3aa:dcf:37b:1ed6:1fb
+Connecting to us.download.nvidia.com (us.download.nvidia.com)|192.229.211.70|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 399821005 (381M) [application/octet-stream]
+Server file no newer than local file 'nvidia-driver-local-repo-rhel7-440.33.01-1.0-1.x86_64.rpm' -- not retrieving.
+
+==========================================================
+RUN command at 2019-12-27 16:19:25
+cd ..
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:25
+rm -rf ./dest/offline_repo.bak
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:25
+mv -f ./dest/offline_repo ./dest/offline_repo.bak
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:25
+mkdir -p ./dest/offline_repo
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:26
+yumdownloader --resolve --destdir ./dest/offline_repo python3 python3-devel python3-libs python3-pip python3-rpm-generators python3-rpm-macros python3-setuptools
+----------
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.sesp.northwestern.edu
+ * epel: mirror.steadfastnet.com
+ * extras: mirrors.gigenet.com
+ * updates: mirror.steadfastnet.com
+--> Running transaction check
+---> Package python3.i686 0:3.6.8-10.el7 will be installed
+--> Processing Dependency: libutil.so.1 for package: python3-3.6.8-10.el7.i686
+--> Processing Dependency: libpthread.so.0 for package: python3-3.6.8-10.el7.i686
+--> Processing Dependency: libm.so.6 for package: python3-3.6.8-10.el7.i686
+--> Processing Dependency: libdl.so.2 for package: python3-3.6.8-10.el7.i686
+--> Processing Dependency: libc.so.6(GLIBC_2.3.4) for package: python3-3.6.8-10.el7.i686
+---> Package python3.x86_64 0:3.6.8-10.el7 will be installed
+---> Package python3-devel.i686 0:3.6.8-10.el7 will be installed
+--> Processing Dependency: redhat-rpm-config for package: python3-devel-3.6.8-10.el7.i686
+--> Processing Dependency: python-rpm-macros for package: python3-devel-3.6.8-10.el7.i686
+---> Package python3-devel.x86_64 0:3.6.8-10.el7 will be installed
+---> Package python3-libs.i686 0:3.6.8-10.el7 will be installed
+--> Processing Dependency: libz.so.1(ZLIB_1.2.0) for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libz.so.1 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libtirpc.so.1 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libtinfo.so.5 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libssl.so.10(libssl.so.10) for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libssl.so.10 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libsqlite3.so.0 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libreadline.so.6 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libpanelw.so.5 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libncursesw.so.5 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: liblzma.so.5(XZ_5.0) for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: liblzma.so.5 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libgdbm_compat.so.4 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libgdbm.so.4 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libffi.so.6 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libexpat.so.1 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libcrypto.so.10(libcrypto.so.10) for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libcrypto.so.10(OPENSSL_1.0.2) for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libcrypto.so.10(OPENSSL_1.0.1_EC) for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libcrypto.so.10 for package: python3-libs-3.6.8-10.el7.i686
+--> Processing Dependency: libbz2.so.1 for package: python3-libs-3.6.8-10.el7.i686
+---> Package python3-libs.x86_64 0:3.6.8-10.el7 will be installed
+--> Processing Dependency: libtirpc.so.1()(64bit) for package: python3-libs-3.6.8-10.el7.x86_64
+---> Package python3-pip.noarch 0:9.0.3-5.el7 will be installed
+---> Package python3-rpm-generators.noarch 0:6-2.el7 will be installed
+---> Package python3-rpm-macros.noarch 0:3-32.el7 will be installed
+---> Package python3-setuptools.noarch 0:39.2.0-10.el7 will be installed
+--> Running transaction check
+---> Package bzip2-libs.i686 0:1.0.6-13.el7 will be installed
+---> Package expat.i686 0:2.1.0-10.el7_3 will be installed
+---> Package gdbm.i686 0:1.10-8.el7 will be installed
+---> Package glibc.i686 0:2.17-292.el7 will be installed
+--> Processing Dependency: libfreebl3.so(NSSRAWHASH_3.12.3) for package: glibc-2.17-292.el7.i686
+--> Processing Dependency: libfreebl3.so for package: glibc-2.17-292.el7.i686
+---> Package libffi.i686 0:3.0.13-18.el7 will be installed
+---> Package libtirpc.i686 0:0.2.4-0.16.el7 will be installed
+--> Processing Dependency: libkrb5.so.3 for package: libtirpc-0.2.4-0.16.el7.i686
+--> Processing Dependency: libk5crypto.so.3 for package: libtirpc-0.2.4-0.16.el7.i686
+--> Processing Dependency: libgssapi_krb5.so.2(gssapi_krb5_2_MIT) for package: libtirpc-0.2.4-0.16.el7.i686
+--> Processing Dependency: libgssapi_krb5.so.2 for package: libtirpc-0.2.4-0.16.el7.i686
+--> Processing Dependency: libcom_err.so.2 for package: libtirpc-0.2.4-0.16.el7.i686
+---> Package libtirpc.x86_64 0:0.2.4-0.16.el7 will be installed
+---> Package ncurses-libs.i686 0:5.9-14.20130511.el7_4 will be installed
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4) for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+--> Processing Dependency: libstdc++.so.6(CXXABI_1.3) for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+--> Processing Dependency: libstdc++.so.6 for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+--> Processing Dependency: libgcc_s.so.1(GCC_3.0) for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+--> Processing Dependency: libgcc_s.so.1 for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+---> Package openssl-libs.i686 1:1.0.2k-19.el7 will be installed
+---> Package python-rpm-macros.noarch 0:3-32.el7 will be installed
+--> Processing Dependency: python-srpm-macros for package: python-rpm-macros-3-32.el7.noarch
+---> Package readline.i686 0:6.2-11.el7 will be installed
+---> Package redhat-rpm-config.noarch 0:9.1.0-88.el7.centos will be installed
+--> Processing Dependency: dwz >= 0.4 for package: redhat-rpm-config-9.1.0-88.el7.centos.noarch
+--> Processing Dependency: zip for package: redhat-rpm-config-9.1.0-88.el7.centos.noarch
+--> Processing Dependency: perl-srpm-macros for package: redhat-rpm-config-9.1.0-88.el7.centos.noarch
+---> Package sqlite.i686 0:3.7.17-8.el7 will be installed
+---> Package xz-libs.i686 0:5.2.2-1.el7 will be installed
+---> Package zlib.i686 0:1.2.7-18.el7 will be installed
+--> Running transaction check
+---> Package dwz.x86_64 0:0.11-3.el7 will be installed
+---> Package krb5-libs.i686 0:1.15.1-37.el7_7.2 will be installed
+--> Processing Dependency: libverto.so.1 for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libselinux.so.1 for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libkeyutils.so.1(KEYUTILS_1.5) for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libkeyutils.so.1(KEYUTILS_1.0) for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libkeyutils.so.1(KEYUTILS_0.3) for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libkeyutils.so.1 for package: krb5-libs-1.15.1-37.el7_7.2.i686
+---> Package libcom_err.i686 0:1.42.9-16.el7 will be installed
+---> Package libgcc.i686 0:4.8.5-39.el7 will be installed
+---> Package libstdc++.i686 0:4.8.5-39.el7 will be installed
+---> Package nss-softokn-freebl.i686 0:3.44.0-8.el7_7 will be installed
+---> Package perl-srpm-macros.noarch 0:1-8.el7 will be installed
+---> Package python-srpm-macros.noarch 0:3-32.el7 will be installed
+---> Package zip.x86_64 0:3.0-11.el7 will be installed
+--> Running transaction check
+---> Package keyutils-libs.i686 0:1.5.8-3.el7 will be installed
+---> Package libselinux.i686 0:2.5-14.1.el7 will be installed
+--> Processing Dependency: libsepol(x86-32) >= 2.5-10 for package: libselinux-2.5-14.1.el7.i686
+--> Processing Dependency: libsepol.so.1(LIBSEPOL_1.0) for package: libselinux-2.5-14.1.el7.i686
+--> Processing Dependency: libsepol.so.1 for package: libselinux-2.5-14.1.el7.i686
+--> Processing Dependency: libpcre.so.1 for package: libselinux-2.5-14.1.el7.i686
+---> Package libverto.i686 0:0.2.5-4.el7 will be installed
+--> Running transaction check
+---> Package libsepol.i686 0:2.5-10.el7 will be installed
+---> Package pcre.i686 0:8.32-17.el7 will be installed
+--> Finished Dependency Resolution
+==========================================================
+RUN command at 2019-12-27 16:19:27
+yumdownloader --resolve --destdir ./dest/offline_repo ack ansible arping arping-debuginfo autoconf ca-certificates ceph-common ceph-fuse curl docker-ce docker-ce-cli gcc initscripts iptables iputils kernel-debug-devel kernel-devel kernel-headers libselinux-python nfs-utils nginx nginx-all-modules nginx-filesystem nginx-mod-http-image-filter nginx-mod-http-perl nginx-mod-http-xslt-filter nginx-mod-mail nginx-mod-stream pciutils pgpool-II-pg10 pgpool-II-pg10-extensions postgresql10 postgresql10-libs postgresql95 postgresql95-libs python python-IPy python-babel python-backports python-backports-ssl_match_hostname python-cephfs python-cffi python-chardet python-deltarpm python-devel python-enum34 python-httplib2 python-idna python-iniparse python-ipaddress python-jinja2 python-kitchen python-libs python-markupsafe python-paramiko python-ply python-prettytable python-pycparser python-pycurl python-rados python-rbd python-requests python-rgw python-rpm-macros python-setuptools python-six python-srpm-macros python-urlgrabber python-urllib3 python2-cryptography python2-dnf python2-hawkey python2-jmespath python2-libcomps python2-libdnf python2-pip python2-psutil python2-pyasn1 python2-rpm-macros screen vim vim-common vim-enhanced vim-filesystem
+----------
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.sesp.northwestern.edu
+ * epel: mirror.steadfastnet.com
+ * extras: mirrors.gigenet.com
+ * updates: mirror.steadfastnet.com
+No Match for argument arping
+No Match for argument arping-debuginfo
+--> Running transaction check
+---> Package ack.noarch 0:2.26-1.el7 will be installed
+--> Processing Dependency: perl(File::Next) >= 1.16 for package: ack-2.26-1.el7.noarch
+--> Processing Dependency: perl(File::Next) for package: ack-2.26-1.el7.noarch
+---> Package ansible.noarch 0:2.9.1-1.el7 will be installed
+--> Processing Dependency: PyYAML for package: ansible-2.9.1-1.el7.noarch
+--> Processing Dependency: sshpass for package: ansible-2.9.1-1.el7.noarch
+---> Package autoconf.noarch 0:2.69-11.el7 will be installed
+--> Processing Dependency: m4 >= 1.4.14 for package: autoconf-2.69-11.el7.noarch
+--> Processing Dependency: perl(Data::Dumper) for package: autoconf-2.69-11.el7.noarch
+---> Package ca-certificates.noarch 0:2019.2.32-76.el7_7 will be reinstalled
+---> Package ceph-common.x86_64 2:12.2.12-0.el7 will be installed
+--> Processing Dependency: librbd1 = 2:12.2.12-0.el7 for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libcephfs2 = 2:12.2.12-0.el7 for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: librados2 = 2:12.2.12-0.el7 for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libibverbs.so.1(IBVERBS_1.1)(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libibverbs.so.1(IBVERBS_1.0)(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libibverbs.so.1()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: librbd.so.1()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libtcmalloc.so.4()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libaio.so.1()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libsnappy.so.1()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libleveldb.so.1()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: librados.so.2()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libfuse.so.2()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libradosstriper.so.1()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libbabeltrace.so.1()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libbabeltrace-ctf.so.1()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libceph-common.so.0()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+--> Processing Dependency: libcephfs.so.2()(64bit) for package: 2:ceph-common-12.2.12-0.el7.x86_64
+---> Package ceph-fuse.x86_64 2:12.2.12-0.el7 will be installed
+--> Processing Dependency: fuse for package: 2:ceph-fuse-12.2.12-0.el7.x86_64
+---> Package curl.x86_64 0:7.29.0-54.el7_7.1 will be reinstalled
+---> Package docker-ce.x86_64 3:19.03.5-3.el7 will be installed
+--> Processing Dependency: container-selinux >= 2:2.74 for package: 3:docker-ce-19.03.5-3.el7.x86_64
+--> Processing Dependency: containerd.io >= 1.2.2-3 for package: 3:docker-ce-19.03.5-3.el7.x86_64
+--> Processing Dependency: libseccomp >= 2.3 for package: 3:docker-ce-19.03.5-3.el7.x86_64
+--> Processing Dependency: libcgroup for package: 3:docker-ce-19.03.5-3.el7.x86_64
+--> Processing Dependency: libseccomp.so.2()(64bit) for package: 3:docker-ce-19.03.5-3.el7.x86_64
+---> Package docker-ce-cli.x86_64 1:19.03.5-3.el7 will be installed
+---> Package gcc.x86_64 0:4.8.5-39.el7 will be installed
+--> Processing Dependency: libgomp = 4.8.5-39.el7 for package: gcc-4.8.5-39.el7.x86_64
+--> Processing Dependency: cpp = 4.8.5-39.el7 for package: gcc-4.8.5-39.el7.x86_64
+--> Processing Dependency: glibc-devel >= 2.2.90-12 for package: gcc-4.8.5-39.el7.x86_64
+--> Processing Dependency: libmpfr.so.4()(64bit) for package: gcc-4.8.5-39.el7.x86_64
+--> Processing Dependency: libmpc.so.3()(64bit) for package: gcc-4.8.5-39.el7.x86_64
+--> Processing Dependency: libgomp.so.1()(64bit) for package: gcc-4.8.5-39.el7.x86_64
+---> Package initscripts.x86_64 0:9.49.47-1.el7 will be installed
+--> Processing Dependency: sysvinit-tools >= 2.87-5 for package: initscripts-9.49.47-1.el7.x86_64
+--> Processing Dependency: iproute for package: initscripts-9.49.47-1.el7.x86_64
+---> Package iptables.i686 0:1.4.21-33.el7 will be installed
+--> Processing Dependency: libnfnetlink.so.0 for package: iptables-1.4.21-33.el7.i686
+--> Processing Dependency: libnetfilter_conntrack.so.3 for package: iptables-1.4.21-33.el7.i686
+--> Processing Dependency: libm.so.6(GLIBC_2.1) for package: iptables-1.4.21-33.el7.i686
+--> Processing Dependency: libm.so.6(GLIBC_2.0) for package: iptables-1.4.21-33.el7.i686
+--> Processing Dependency: libm.so.6 for package: iptables-1.4.21-33.el7.i686
+--> Processing Dependency: libdl.so.2(GLIBC_2.1) for package: iptables-1.4.21-33.el7.i686
+--> Processing Dependency: libdl.so.2(GLIBC_2.0) for package: iptables-1.4.21-33.el7.i686
+--> Processing Dependency: libdl.so.2 for package: iptables-1.4.21-33.el7.i686
+--> Processing Dependency: libc.so.6(GLIBC_2.15) for package: iptables-1.4.21-33.el7.i686
+---> Package iptables.x86_64 0:1.4.21-33.el7 will be installed
+--> Processing Dependency: libnfnetlink.so.0()(64bit) for package: iptables-1.4.21-33.el7.x86_64
+--> Processing Dependency: libnetfilter_conntrack.so.3()(64bit) for package: iptables-1.4.21-33.el7.x86_64
+---> Package iputils.x86_64 0:20160308-10.el7 will be reinstalled
+---> Package kernel-debug-devel.x86_64 0:3.10.0-1062.9.1.el7 will be installed
+---> Package kernel-devel.x86_64 0:3.10.0-1062.9.1.el7 will be installed
+---> Package kernel-headers.x86_64 0:3.10.0-1062.9.1.el7 will be installed
+---> Package libselinux-python.x86_64 0:2.5-14.1.el7 will be installed
+---> Package nfs-utils.x86_64 1:1.3.0-0.65.el7 will be installed
+--> Processing Dependency: libtirpc >= 0.2.4-0.7 for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: gssproxy >= 0.7.0-3 for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: rpcbind for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: quota for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: libnfsidmap for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: libevent for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: keyutils for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: libwrap.so.0()(64bit) for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: libtirpc.so.1()(64bit) for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: libnfsidmap.so.0()(64bit) for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+--> Processing Dependency: libevent-2.0.so.5()(64bit) for package: 1:nfs-utils-1.3.0-0.65.el7.x86_64
+---> Package nginx.x86_64 1:1.16.1-1.el7 will be installed
+--> Processing Dependency: openssl for package: 1:nginx-1.16.1-1.el7.x86_64
+--> Processing Dependency: redhat-indexhtml for package: 1:nginx-1.16.1-1.el7.x86_64
+--> Processing Dependency: system-logos for package: 1:nginx-1.16.1-1.el7.x86_64
+---> Package nginx-all-modules.noarch 1:1.16.1-1.el7 will be installed
+---> Package nginx-filesystem.noarch 1:1.16.1-1.el7 will be installed
+---> Package nginx-mod-http-image-filter.x86_64 1:1.16.1-1.el7 will be installed
+--> Processing Dependency: gd for package: 1:nginx-mod-http-image-filter-1.16.1-1.el7.x86_64
+--> Processing Dependency: libgd.so.2()(64bit) for package: 1:nginx-mod-http-image-filter-1.16.1-1.el7.x86_64
+---> Package nginx-mod-http-perl.x86_64 1:1.16.1-1.el7 will be installed
+---> Package nginx-mod-http-xslt-filter.x86_64 1:1.16.1-1.el7 will be installed
+--> Processing Dependency: libxslt.so.1(LIBXML2_1.0.11)(64bit) for package: 1:nginx-mod-http-xslt-filter-1.16.1-1.el7.x86_64
+--> Processing Dependency: libxslt.so.1(LIBXML2_1.0.18)(64bit) for package: 1:nginx-mod-http-xslt-filter-1.16.1-1.el7.x86_64
+--> Processing Dependency: libexslt.so.0()(64bit) for package: 1:nginx-mod-http-xslt-filter-1.16.1-1.el7.x86_64
+--> Processing Dependency: libxslt.so.1()(64bit) for package: 1:nginx-mod-http-xslt-filter-1.16.1-1.el7.x86_64
+---> Package nginx-mod-mail.x86_64 1:1.16.1-1.el7 will be installed
+---> Package nginx-mod-stream.x86_64 1:1.16.1-1.el7 will be installed
+---> Package pciutils.x86_64 0:3.5.1-3.el7 will be installed
+--> Processing Dependency: pciutils-libs = 3.5.1-3.el7 for package: pciutils-3.5.1-3.el7.x86_64
+--> Processing Dependency: libpci.so.3(LIBPCI_3.5)(64bit) for package: pciutils-3.5.1-3.el7.x86_64
+--> Processing Dependency: libpci.so.3(LIBPCI_3.3)(64bit) for package: pciutils-3.5.1-3.el7.x86_64
+--> Processing Dependency: libpci.so.3(LIBPCI_3.1)(64bit) for package: pciutils-3.5.1-3.el7.x86_64
+--> Processing Dependency: libpci.so.3(LIBPCI_3.0)(64bit) for package: pciutils-3.5.1-3.el7.x86_64
+--> Processing Dependency: hwdata for package: pciutils-3.5.1-3.el7.x86_64
+--> Processing Dependency: libpci.so.3()(64bit) for package: pciutils-3.5.1-3.el7.x86_64
+---> Package pgpool-II-pg10.x86_64 0:4.1.0-2pgdg.rhel7 will be installed
+--> Processing Dependency: systemd-sysv for package: pgpool-II-pg10-4.1.0-2pgdg.rhel7.x86_64
+--> Processing Dependency: libmemcached.so.11()(64bit) for package: pgpool-II-pg10-4.1.0-2pgdg.rhel7.x86_64
+---> Package pgpool-II-pg10-extensions.x86_64 0:4.1.0-2pgdg.rhel7 will be installed
+---> Package postgresql10.x86_64 0:10.11-2PGDG.rhel7 will be installed
+--> Processing Dependency: libicu for package: postgresql10-10.11-2PGDG.rhel7.x86_64
+---> Package postgresql10-libs.x86_64 0:10.11-2PGDG.rhel7 will be installed
+---> Package postgresql95.x86_64 0:9.5.20-2PGDG.rhel7 will be installed
+---> Package postgresql95-libs.x86_64 0:9.5.20-2PGDG.rhel7 will be installed
+---> Package python.x86_64 0:2.7.5-86.el7 will be reinstalled
+---> Package python-IPy.noarch 0:0.75-6.el7 will be installed
+---> Package python-babel.noarch 0:0.9.6-8.el7 will be installed
+---> Package python-backports.x86_64 0:1.0-8.el7 will be installed
+---> Package python-backports-ssl_match_hostname.noarch 0:3.5.0.1-1.el7 will be installed
+---> Package python-cephfs.x86_64 2:12.2.12-0.el7 will be installed
+---> Package python-cffi.x86_64 0:1.6.0-5.el7 will be installed
+---> Package python-chardet.noarch 0:2.2.1-3.el7 will be reinstalled
+---> Package python-deltarpm.x86_64 0:3.6-3.el7 will be reinstalled
+---> Package python-devel.x86_64 0:2.7.5-86.el7 will be installed
+---> Package python-enum34.noarch 0:1.0.4-1.el7 will be installed
+---> Package python-httplib2.noarch 0:0.9.2-1.el7 will be installed
+---> Package python-idna.noarch 0:2.4-1.el7 will be installed
+---> Package python-iniparse.noarch 0:0.4-9.el7 will be reinstalled
+---> Package python-ipaddress.noarch 0:1.0.16-2.el7 will be installed
+---> Package python-jinja2.noarch 0:2.8-7.rhel7 will be installed
+---> Package python-kitchen.noarch 0:1.1.1-5.el7 will be reinstalled
+---> Package python-libs.i686 0:2.7.5-86.el7 will be installed
+--> Processing Dependency: libz.so.1(ZLIB_1.2.0) for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libz.so.1 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libtinfo.so.5 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libssl.so.10(libssl.so.10) for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libssl.so.10 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libsqlite3.so.0 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libreadline.so.6 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libpanelw.so.5 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libncursesw.so.5 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libgdbm_compat.so.4 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libgdbm.so.4 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libffi.so.6 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libexpat.so.1 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libdb-5.3.so for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libcrypto.so.10(libcrypto.so.10) for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libcrypto.so.10(OPENSSL_1.0.2) for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libcrypto.so.10(OPENSSL_1.0.1_EC) for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libcrypto.so.10 for package: python-libs-2.7.5-86.el7.i686
+--> Processing Dependency: libbz2.so.1 for package: python-libs-2.7.5-86.el7.i686
+---> Package python-libs.x86_64 0:2.7.5-86.el7 will be reinstalled
+---> Package python-markupsafe.x86_64 0:0.11-10.el7 will be installed
+---> Package python-paramiko.noarch 0:2.1.1-9.el7 will be installed
+---> Package python-ply.noarch 0:3.4-11.el7 will be installed
+---> Package python-prettytable.noarch 0:0.7.2-3.el7 will be installed
+---> Package python-pycparser.noarch 0:2.14-1.el7 will be installed
+---> Package python-pycurl.x86_64 0:7.19.0-19.el7 will be reinstalled
+---> Package python-rados.x86_64 2:12.2.12-0.el7 will be installed
+---> Package python-rbd.x86_64 2:12.2.12-0.el7 will be installed
+---> Package python-requests.noarch 0:2.6.0-8.el7_7 will be installed
+---> Package python-rgw.x86_64 2:12.2.12-0.el7 will be installed
+--> Processing Dependency: librgw2 = 2:12.2.12-0.el7 for package: 2:python-rgw-12.2.12-0.el7.x86_64
+--> Processing Dependency: librgw.so.2()(64bit) for package: 2:python-rgw-12.2.12-0.el7.x86_64
+---> Package python-rpm-macros.noarch 0:3-32.el7 will be installed
+---> Package python-setuptools.noarch 0:0.9.8-7.el7 will be installed
+---> Package python-six.noarch 0:1.9.0-2.el7 will be installed
+---> Package python-srpm-macros.noarch 0:3-32.el7 will be installed
+---> Package python-urlgrabber.noarch 0:3.10-9.el7 will be reinstalled
+---> Package python-urllib3.noarch 0:1.10.2-7.el7 will be installed
+---> Package python2-cryptography.x86_64 0:1.7.2-2.el7 will be installed
+---> Package python2-dnf.noarch 0:4.0.9.2-1.el7_6 will be installed
+--> Processing Dependency: dnf-data = 4.0.9.2-1.el7_6 for package: python2-dnf-4.0.9.2-1.el7_6.noarch
+--> Processing Dependency: libmodulemd >= 1.4.0 for package: python2-dnf-4.0.9.2-1.el7_6.noarch
+---> Package python2-hawkey.x86_64 0:0.22.5-1.el7_6 will be installed
+--> Processing Dependency: libdnf(x86-64) = 0.22.5-1.el7_6 for package: python2-hawkey-0.22.5-1.el7_6.x86_64
+--> Processing Dependency: libsolvext.so.0(SOLV_1.0)(64bit) for package: python2-hawkey-0.22.5-1.el7_6.x86_64
+--> Processing Dependency: libsolv.so.0(SOLV_1.0)(64bit) for package: python2-hawkey-0.22.5-1.el7_6.x86_64
+--> Processing Dependency: libsolvext.so.0()(64bit) for package: python2-hawkey-0.22.5-1.el7_6.x86_64
+--> Processing Dependency: libsolv.so.0()(64bit) for package: python2-hawkey-0.22.5-1.el7_6.x86_64
+--> Processing Dependency: librepo.so.0()(64bit) for package: python2-hawkey-0.22.5-1.el7_6.x86_64
+--> Processing Dependency: libdnf.so.2()(64bit) for package: python2-hawkey-0.22.5-1.el7_6.x86_64
+---> Package python2-jmespath.noarch 0:0.9.0-3.el7 will be installed
+---> Package python2-libcomps.x86_64 0:0.1.8-12.el7 will be installed
+--> Processing Dependency: libcomps(x86-64) = 0.1.8-12.el7 for package: python2-libcomps-0.1.8-12.el7.x86_64
+--> Processing Dependency: libcomps.so.0.1.6()(64bit) for package: python2-libcomps-0.1.8-12.el7.x86_64
+---> Package python2-libdnf.x86_64 0:0.22.5-1.el7_6 will be installed
+---> Package python2-pip.noarch 0:8.1.2-10.el7 will be installed
+---> Package python2-psutil.x86_64 0:2.2.1-5.el7 will be installed
+---> Package python2-pyasn1.noarch 0:0.1.9-7.el7 will be installed
+---> Package python2-rpm-macros.noarch 0:3-32.el7 will be installed
+---> Package screen.x86_64 0:4.1.0-0.25.20120314git3c2946.el7 will be installed
+---> Package vim-common.x86_64 2:7.4.629-6.el7 will be reinstalled
+---> Package vim-enhanced.x86_64 2:7.4.629-6.el7 will be reinstalled
+---> Package vim-filesystem.x86_64 2:7.4.629-6.el7 will be reinstalled
+--> Running transaction check
+---> Package PyYAML.x86_64 0:3.10-11.el7 will be installed
+--> Processing Dependency: libyaml-0.so.2()(64bit) for package: PyYAML-3.10-11.el7.x86_64
+---> Package bzip2-libs.i686 0:1.0.6-13.el7 will be installed
+---> Package centos-indexhtml.noarch 0:7-9.el7.centos will be installed
+---> Package centos-logos.noarch 0:70.0.6-3.el7.centos will be installed
+---> Package container-selinux.noarch 2:2.107-3.el7 will be installed
+--> Processing Dependency: selinux-policy-targeted >= 3.13.1-216.el7 for package: 2:container-selinux-2.107-3.el7.noarch
+--> Processing Dependency: selinux-policy-base >= 3.13.1-216.el7 for package: 2:container-selinux-2.107-3.el7.noarch
+--> Processing Dependency: selinux-policy >= 3.13.1-216.el7 for package: 2:container-selinux-2.107-3.el7.noarch
+--> Processing Dependency: policycoreutils >= 2.5-11 for package: 2:container-selinux-2.107-3.el7.noarch
+--> Processing Dependency: policycoreutils-python for package: 2:container-selinux-2.107-3.el7.noarch
+--> Processing Dependency: libselinux-utils for package: 2:container-selinux-2.107-3.el7.noarch
+---> Package containerd.io.x86_64 0:1.2.10-3.2.el7 will be installed
+---> Package cpp.x86_64 0:4.8.5-39.el7 will be installed
+---> Package dnf-data.noarch 0:4.0.9.2-1.el7_6 will be installed
+--> Processing Dependency: libreport-filesystem for package: dnf-data-4.0.9.2-1.el7_6.noarch
+---> Package expat.i686 0:2.1.0-10.el7_3 will be installed
+---> Package fuse.x86_64 0:2.9.2-11.el7 will be installed
+---> Package fuse-libs.x86_64 0:2.9.2-11.el7 will be installed
+---> Package gd.x86_64 0:2.0.35-26.el7 will be installed
+--> Processing Dependency: libpng15.so.15(PNG15_0)(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libjpeg.so.62(LIBJPEG_6.2)(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libpng15.so.15()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libfontconfig.so.1()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libXpm.so.4()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libX11.so.6()(64bit) for package: gd-2.0.35-26.el7.x86_64
+---> Package gdbm.i686 0:1.10-8.el7 will be installed
+---> Package glibc.i686 0:2.17-292.el7 will be installed
+--> Processing Dependency: libfreebl3.so(NSSRAWHASH_3.12.3) for package: glibc-2.17-292.el7.i686
+--> Processing Dependency: libfreebl3.so for package: glibc-2.17-292.el7.i686
+---> Package glibc-devel.x86_64 0:2.17-292.el7 will be installed
+--> Processing Dependency: glibc-headers = 2.17-292.el7 for package: glibc-devel-2.17-292.el7.x86_64
+--> Processing Dependency: glibc-headers for package: glibc-devel-2.17-292.el7.x86_64
+---> Package gperftools-libs.x86_64 0:2.6.1-1.el7 will be installed
+---> Package gssproxy.x86_64 0:0.7.0-26.el7 will be installed
+--> Processing Dependency: libini_config >= 1.3.1-31 for package: gssproxy-0.7.0-26.el7.x86_64
+--> Processing Dependency: libverto-module-base for package: gssproxy-0.7.0-26.el7.x86_64
+--> Processing Dependency: libref_array.so.1(REF_ARRAY_0.1.1)(64bit) for package: gssproxy-0.7.0-26.el7.x86_64
+--> Processing Dependency: libini_config.so.3(INI_CONFIG_1.2.0)(64bit) for package: gssproxy-0.7.0-26.el7.x86_64
+--> Processing Dependency: libini_config.so.3(INI_CONFIG_1.1.0)(64bit) for package: gssproxy-0.7.0-26.el7.x86_64
+--> Processing Dependency: libref_array.so.1()(64bit) for package: gssproxy-0.7.0-26.el7.x86_64
+--> Processing Dependency: libini_config.so.3()(64bit) for package: gssproxy-0.7.0-26.el7.x86_64
+--> Processing Dependency: libcollection.so.2()(64bit) for package: gssproxy-0.7.0-26.el7.x86_64
+--> Processing Dependency: libbasicobjects.so.0()(64bit) for package: gssproxy-0.7.0-26.el7.x86_64
+---> Package hwdata.x86_64 0:0.252-9.3.el7 will be installed
+---> Package iproute.x86_64 0:4.11.0-25.el7_7.2 will be installed
+--> Processing Dependency: libmnl.so.0(LIBMNL_1.0)(64bit) for package: iproute-4.11.0-25.el7_7.2.x86_64
+--> Processing Dependency: libmnl.so.0()(64bit) for package: iproute-4.11.0-25.el7_7.2.x86_64
+---> Package keyutils.x86_64 0:1.5.8-3.el7 will be installed
+---> Package leveldb.x86_64 0:1.12.0-11.el7 will be installed
+---> Package libaio.x86_64 0:0.3.109-13.el7 will be installed
+---> Package libbabeltrace.x86_64 0:1.2.4-3.el7 will be installed
+---> Package libcephfs2.x86_64 2:12.2.12-0.el7 will be installed
+---> Package libcgroup.x86_64 0:0.41-21.el7 will be installed
+---> Package libcomps.x86_64 0:0.1.8-12.el7 will be installed
+---> Package libdb.i686 0:5.3.21-25.el7 will be installed
+---> Package libdnf.x86_64 0:0.22.5-1.el7_6 will be installed
+---> Package libevent.x86_64 0:2.0.21-4.el7 will be installed
+---> Package libffi.i686 0:3.0.13-18.el7 will be installed
+---> Package libgomp.x86_64 0:4.8.5-39.el7 will be installed
+---> Package libibverbs.x86_64 0:22.1-3.el7 will be installed
+--> Processing Dependency: rdma-core(x86-64) = 22.1-3.el7 for package: libibverbs-22.1-3.el7.x86_64
+--> Processing Dependency: libnl-route-3.so.200(libnl_3)(64bit) for package: libibverbs-22.1-3.el7.x86_64
+--> Processing Dependency: libnl-3.so.200(libnl_3)(64bit) for package: libibverbs-22.1-3.el7.x86_64
+--> Processing Dependency: libnl-route-3.so.200()(64bit) for package: libibverbs-22.1-3.el7.x86_64
+--> Processing Dependency: libnl-3.so.200()(64bit) for package: libibverbs-22.1-3.el7.x86_64
+---> Package libicu.x86_64 0:50.2-3.el7 will be installed
+---> Package libmemcached.x86_64 0:1.0.16-5.el7 will be installed
+---> Package libmodulemd.x86_64 0:1.6.3-1.el7 will be installed
+---> Package libmpc.x86_64 0:1.0.1-3.el7 will be installed
+---> Package libnetfilter_conntrack.i686 0:1.0.6-1.el7_3 will be installed
+--> Processing Dependency: libmnl.so.0(LIBMNL_1.1) for package: libnetfilter_conntrack-1.0.6-1.el7_3.i686
+--> Processing Dependency: libmnl.so.0(LIBMNL_1.0) for package: libnetfilter_conntrack-1.0.6-1.el7_3.i686
+--> Processing Dependency: libmnl.so.0 for package: libnetfilter_conntrack-1.0.6-1.el7_3.i686
+---> Package libnetfilter_conntrack.x86_64 0:1.0.6-1.el7_3 will be installed
+---> Package libnfnetlink.i686 0:1.0.1-4.el7 will be installed
+---> Package libnfnetlink.x86_64 0:1.0.1-4.el7 will be installed
+---> Package libnfsidmap.x86_64 0:0.25-19.el7 will be installed
+---> Package librados2.x86_64 2:12.2.12-0.el7 will be installed
+--> Processing Dependency: liblttng-ust.so.0()(64bit) for package: 2:librados2-12.2.12-0.el7.x86_64
+---> Package libradosstriper1.x86_64 2:12.2.12-0.el7 will be installed
+---> Package librbd1.x86_64 2:12.2.12-0.el7 will be installed
+---> Package librepo.x86_64 0:1.8.1-7.el7 will be installed
+---> Package librgw2.x86_64 2:12.2.12-0.el7 will be installed
+---> Package libseccomp.x86_64 0:2.3.1-3.el7 will be installed
+---> Package libsolv.x86_64 0:0.6.34-4.el7 will be installed
+---> Package libtirpc.x86_64 0:0.2.4-0.16.el7 will be installed
+---> Package libxslt.x86_64 0:1.1.28-5.el7 will be installed
+---> Package m4.x86_64 0:1.4.16-10.el7 will be installed
+---> Package mpfr.x86_64 0:3.1.1-4.el7 will be installed
+---> Package ncurses-libs.i686 0:5.9-14.20130511.el7_4 will be installed
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4) for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+--> Processing Dependency: libstdc++.so.6(CXXABI_1.3) for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+--> Processing Dependency: libstdc++.so.6 for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+--> Processing Dependency: libgcc_s.so.1(GCC_3.0) for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+--> Processing Dependency: libgcc_s.so.1 for package: ncurses-libs-5.9-14.20130511.el7_4.i686
+---> Package openssl.x86_64 1:1.0.2k-19.el7 will be installed
+--> Processing Dependency: make for package: 1:openssl-1.0.2k-19.el7.x86_64
+---> Package openssl-libs.i686 1:1.0.2k-19.el7 will be installed
+--> Processing Dependency: libkrb5.so.3(krb5_3_MIT) for package: 1:openssl-libs-1.0.2k-19.el7.i686
+--> Processing Dependency: libkrb5.so.3 for package: 1:openssl-libs-1.0.2k-19.el7.i686
+--> Processing Dependency: libk5crypto.so.3(k5crypto_3_MIT) for package: 1:openssl-libs-1.0.2k-19.el7.i686
+--> Processing Dependency: libk5crypto.so.3 for package: 1:openssl-libs-1.0.2k-19.el7.i686
+--> Processing Dependency: libgssapi_krb5.so.2 for package: 1:openssl-libs-1.0.2k-19.el7.i686
+--> Processing Dependency: libcom_err.so.2 for package: 1:openssl-libs-1.0.2k-19.el7.i686
+---> Package pciutils-libs.x86_64 0:3.5.1-3.el7 will be installed
+---> Package perl-Data-Dumper.x86_64 0:2.145-3.el7 will be installed
+---> Package perl-File-Next.noarch 0:1.16-1.el7 will be installed
+---> Package quota.x86_64 1:4.01-19.el7 will be installed
+--> Processing Dependency: quota-nls = 1:4.01-19.el7 for package: 1:quota-4.01-19.el7.x86_64
+--> Processing Dependency: tcp_wrappers for package: 1:quota-4.01-19.el7.x86_64
+--> Processing Dependency: libext2fs.so.2()(64bit) for package: 1:quota-4.01-19.el7.x86_64
+---> Package readline.i686 0:6.2-11.el7 will be installed
+---> Package rpcbind.x86_64 0:0.2.0-48.el7 will be installed
+---> Package snappy.x86_64 0:1.1.0-3.el7 will be installed
+---> Package sqlite.i686 0:3.7.17-8.el7 will be installed
+---> Package sshpass.x86_64 0:1.06-2.el7 will be installed
+---> Package systemd-sysv.x86_64 0:219-67.el7_7.2 will be installed
+---> Package sysvinit-tools.x86_64 0:2.88-14.dsf.el7 will be installed
+---> Package tcp_wrappers-libs.x86_64 0:7.6-77.el7 will be installed
+---> Package zlib.i686 0:1.2.7-18.el7 will be installed
+--> Running transaction check
+---> Package e2fsprogs-libs.x86_64 0:1.42.9-16.el7 will be installed
+---> Package fontconfig.x86_64 0:2.13.0-4.3.el7 will be installed
+--> Processing Dependency: fontpackages-filesystem for package: fontconfig-2.13.0-4.3.el7.x86_64
+--> Processing Dependency: dejavu-sans-fonts for package: fontconfig-2.13.0-4.3.el7.x86_64
+---> Package freetype.x86_64 0:2.8-14.el7 will be installed
+---> Package glibc-headers.x86_64 0:2.17-292.el7 will be installed
+---> Package krb5-libs.i686 0:1.15.1-37.el7_7.2 will be installed
+--> Processing Dependency: libverto.so.1 for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libselinux.so.1 for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libkeyutils.so.1(KEYUTILS_1.5) for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libkeyutils.so.1(KEYUTILS_1.0) for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libkeyutils.so.1(KEYUTILS_0.3) for package: krb5-libs-1.15.1-37.el7_7.2.i686
+--> Processing Dependency: libkeyutils.so.1 for package: krb5-libs-1.15.1-37.el7_7.2.i686
+---> Package libX11.x86_64 0:1.6.7-2.el7 will be installed
+--> Processing Dependency: libX11-common >= 1.6.7-2.el7 for package: libX11-1.6.7-2.el7.x86_64
+--> Processing Dependency: libxcb.so.1()(64bit) for package: libX11-1.6.7-2.el7.x86_64
+---> Package libXpm.x86_64 0:3.5.12-1.el7 will be installed
+---> Package libbasicobjects.x86_64 0:0.1.1-32.el7 will be installed
+---> Package libcollection.x86_64 0:0.7.0-32.el7 will be installed
+---> Package libcom_err.i686 0:1.42.9-16.el7 will be installed
+---> Package libgcc.i686 0:4.8.5-39.el7 will be installed
+---> Package libini_config.x86_64 0:1.3.1-32.el7 will be installed
+--> Processing Dependency: libpath_utils.so.1(PATH_UTILS_0.2.1)(64bit) for package: libini_config-1.3.1-32.el7.x86_64
+--> Processing Dependency: libpath_utils.so.1()(64bit) for package: libini_config-1.3.1-32.el7.x86_64
+---> Package libjpeg-turbo.x86_64 0:1.2.90-8.el7 will be installed
+---> Package libmnl.i686 0:1.0.3-7.el7 will be installed
+---> Package libmnl.x86_64 0:1.0.3-7.el7 will be installed
+---> Package libnl3.x86_64 0:3.2.28-4.el7 will be installed
+---> Package libpng.x86_64 2:1.5.13-7.el7_2 will be installed
+---> Package libref_array.x86_64 0:0.1.5-32.el7 will be installed
+---> Package libreport-filesystem.x86_64 0:2.1.11-43.el7.centos will be installed
+---> Package libselinux-utils.x86_64 0:2.5-14.1.el7 will be installed
+---> Package libstdc++.i686 0:4.8.5-39.el7 will be installed
+---> Package libverto-libevent.x86_64 0:0.2.5-4.el7 will be installed
+---> Package libyaml.x86_64 0:0.1.4-11.el7_0 will be installed
+---> Package lttng-ust.x86_64 0:2.4.1-4.el7 will be installed
+--> Processing Dependency: liburcu-bp.so.1()(64bit) for package: lttng-ust-2.4.1-4.el7.x86_64
+--> Processing Dependency: liburcu-cds.so.1()(64bit) for package: lttng-ust-2.4.1-4.el7.x86_64
+---> Package make.x86_64 1:3.82-24.el7 will be installed
+---> Package nss-softokn-freebl.i686 0:3.44.0-8.el7_7 will be installed
+---> Package policycoreutils.x86_64 0:2.5-33.el7 will be installed
+---> Package policycoreutils-python.x86_64 0:2.5-33.el7 will be installed
+--> Processing Dependency: setools-libs >= 3.3.8-4 for package: policycoreutils-python-2.5-33.el7.x86_64
+--> Processing Dependency: libsemanage-python >= 2.5-14 for package: policycoreutils-python-2.5-33.el7.x86_64
+--> Processing Dependency: audit-libs-python >= 2.1.3-4 for package: policycoreutils-python-2.5-33.el7.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.4)(64bit) for package: policycoreutils-python-2.5-33.el7.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.2)(64bit) for package: policycoreutils-python-2.5-33.el7.x86_64
+--> Processing Dependency: libapol.so.4(VERS_4.0)(64bit) for package: policycoreutils-python-2.5-33.el7.x86_64
+--> Processing Dependency: checkpolicy for package: policycoreutils-python-2.5-33.el7.x86_64
+--> Processing Dependency: libqpol.so.1()(64bit) for package: policycoreutils-python-2.5-33.el7.x86_64
+--> Processing Dependency: libapol.so.4()(64bit) for package: policycoreutils-python-2.5-33.el7.x86_64
+---> Package quota-nls.noarch 1:4.01-19.el7 will be installed
+---> Package rdma-core.x86_64 0:22.1-3.el7 will be installed
+---> Package selinux-policy.noarch 0:3.13.1-252.el7_7.6 will be installed
+---> Package selinux-policy-targeted.noarch 0:3.13.1-252.el7_7.6 will be installed
+---> Package tcp_wrappers.x86_64 0:7.6-77.el7 will be installed
+--> Running transaction check
+---> Package audit-libs-python.x86_64 0:2.8.5-4.el7 will be installed
+---> Package checkpolicy.x86_64 0:2.5-8.el7 will be installed
+---> Package dejavu-sans-fonts.noarch 0:2.33-6.el7 will be installed
+--> Processing Dependency: dejavu-fonts-common = 2.33-6.el7 for package: dejavu-sans-fonts-2.33-6.el7.noarch
+---> Package fontpackages-filesystem.noarch 0:1.44-8.el7 will be installed
+---> Package keyutils-libs.i686 0:1.5.8-3.el7 will be installed
+---> Package libX11-common.noarch 0:1.6.7-2.el7 will be installed
+---> Package libpath_utils.x86_64 0:0.2.1-32.el7 will be installed
+---> Package libselinux.i686 0:2.5-14.1.el7 will be installed
+--> Processing Dependency: libsepol(x86-32) >= 2.5-10 for package: libselinux-2.5-14.1.el7.i686
+--> Processing Dependency: libsepol.so.1(LIBSEPOL_1.0) for package: libselinux-2.5-14.1.el7.i686
+--> Processing Dependency: libsepol.so.1 for package: libselinux-2.5-14.1.el7.i686
+--> Processing Dependency: libpcre.so.1 for package: libselinux-2.5-14.1.el7.i686
+---> Package libsemanage-python.x86_64 0:2.5-14.el7 will be installed
+---> Package libverto.i686 0:0.2.5-4.el7 will be installed
+---> Package libxcb.x86_64 0:1.13-1.el7 will be installed
+--> Processing Dependency: libXau.so.6()(64bit) for package: libxcb-1.13-1.el7.x86_64
+---> Package setools-libs.x86_64 0:3.3.8-4.el7 will be installed
+---> Package userspace-rcu.x86_64 0:0.7.16-1.el7 will be installed
+--> Running transaction check
+---> Package dejavu-fonts-common.noarch 0:2.33-6.el7 will be installed
+---> Package libXau.x86_64 0:1.0.8-2.1.el7 will be installed
+---> Package libsepol.i686 0:2.5-10.el7 will be installed
+---> Package pcre.i686 0:8.32-17.el7 will be installed
+--> Finished Dependency Resolution
+ignoring a dupe of 2:vim-enhanced-7.4.629-6.el7.x86_64
+No Presto metadata available for updates
+warning: /workdir/dest/offline_repo/containerd.io-1.2.10-3.2.el7.x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID 621e9f35: NOKEY
+Public key for containerd.io-1.2.10-3.2.el7.x86_64.rpm is not installed
+warning: /workdir/dest/offline_repo/postgresql95-9.5.20-2PGDG.rhel7.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 442df0f8: NOKEY
+Public key for postgresql95-9.5.20-2PGDG.rhel7.x86_64.rpm is not installed
+Public key for python-jinja2-2.8-7.rhel7.noarch.rpm is not installed
+Public key for postgresql10-libs-10.11-2PGDG.rhel7.x86_64.rpm is not installed
+==========================================================
+RUN command at 2019-12-27 16:19:47
+createrepo ./dest/offline_repo
+----------
+Spawning worker 0 with 16 pkgs
+Spawning worker 1 with 16 pkgs
+Spawning worker 2 with 15 pkgs
+Spawning worker 3 with 15 pkgs
+Spawning worker 4 with 15 pkgs
+Spawning worker 5 with 15 pkgs
+Spawning worker 6 with 15 pkgs
+Spawning worker 7 with 15 pkgs
+Spawning worker 8 with 15 pkgs
+Spawning worker 9 with 15 pkgs
+Spawning worker 10 with 15 pkgs
+Spawning worker 11 with 15 pkgs
+Spawning worker 12 with 15 pkgs
+Spawning worker 13 with 15 pkgs
+Spawning worker 14 with 15 pkgs
+Spawning worker 15 with 15 pkgs
+Workers Finished
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete
+==========================================================
+RUN command at 2019-12-27 16:19:56
+chmod -R 555 ./dest/offline_repo/..
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:56
+cd ./dest/offline_repo/..
+----------
+==========================================================
+RUN command at 2019-12-27 16:19:56
+tar -zcf yum_archives.tar.gz offline_repo
+----------
+All Done!
