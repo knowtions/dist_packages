@@ -103,10 +103,11 @@ done
 RUN cd ..
 
 repo_dir="offline_repo"
-repo_path="./dest/${repo_dir}"
+repo_path="./builddir/${repo_dir}"
 all_pkgs_wi_py3=$(grep -v '^#' yum.txt | grep "^python3" | xargs)
 all_pkgs_wo_py3=$(grep -v '^#' yum.txt | grep -v "^python3" | xargs)
 RUN rm -rf ${repo_path}.bak
+RUN mkdir -p ${repo_path}
 RUN mv -f ${repo_path} ${repo_path}.bak
 RUN mkdir -p ${repo_path}
 cp -rf download/*.rpm ${repo_path}
