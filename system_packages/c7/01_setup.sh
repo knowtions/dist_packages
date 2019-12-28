@@ -31,6 +31,11 @@ RUN yum install -y \
     # lvm2 \
     # https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
+# nvidia-container-toolkit == nvidia runtime
+RUN wget https://nvidia.github.io/nvidia-docker/centos7/nvidia-docker.repo -O /etc/yum.repos.d/nvidia-docker.repo
+RUN yum clean all
+RUN yum update -y
+
 # rpm --import 'https://download.ceph.com/keys/release.asc'
 # ceph_distro=el7
 # ceph_release=luminous
