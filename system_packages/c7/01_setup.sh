@@ -51,35 +51,13 @@ RUN yum install -y http://www.pgpool.net/yum/rpms/4.1/redhat/rhel-7-x86_64/pgpoo
 RUN yum install -y https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm || true
 
 dl_list="
-# kernel packages
-http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-devel-3.10.0-123.el7.x86_64.rpm
-http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-debug-devel-3.10.0-123.el7.x86_64.rpm
-http://vault.centos.org/7.0.1406/os/x86_64/Packages/kernel-headers-3.10.0-123.el7.x86_64.rpm
-http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-devel-3.10.0-229.el7.x86_64.rpm
-http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-debug-devel-3.10.0-229.el7.x86_64.rpm
-http://vault.centos.org/7.1.1503/os/x86_64/Packages/kernel-headers-3.10.0-229.el7.x86_64.rpm
-http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-devel-3.10.0-327.el7.x86_64.rpm
-http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-debug-devel-3.10.0-327.el7.x86_64.rpm
-http://vault.centos.org/7.2.1511/os/x86_64/Packages/kernel-headers-3.10.0-327.el7.x86_64.rpm
-http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-devel-3.10.0-514.el7.x86_64.rpm
-http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-debug-devel-3.10.0-514.el7.x86_64.rpm
-http://vault.centos.org/7.3.1611/os/x86_64/Packages/kernel-headers-3.10.0-514.el7.x86_64.rpm
-http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-devel-3.10.0-693.el7.x86_64.rpm
-http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-debug-devel-3.10.0-693.el7.x86_64.rpm
-http://vault.centos.org/7.4.1708/os/x86_64/Packages/kernel-headers-3.10.0-693.el7.x86_64.rpm
-http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-devel-3.10.0-862.el7.x86_64.rpm
-http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-debug-devel-3.10.0-862.el7.x86_64.rpm
-http://vault.centos.org/7.5.1804/os/x86_64/Packages/kernel-headers-3.10.0-862.el7.x86_64.rpm
-http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-devel-3.10.0-957.el7.x86_64.rpm
-http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-debug-devel-3.10.0-957.el7.x86_64.rpm
-http://vault.centos.org/7.6.1810/os/x86_64/Packages/kernel-headers-3.10.0-957.el7.x86_64.rpm
-http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-devel-3.10.0-1062.el7.x86_64.rpm
-http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-debug-devel-3.10.0-1062.el7.x86_64.rpm
-http://mirror.centos.org/centos/7.7.1908/os/x86_64/Packages/kernel-headers-3.10.0-1062.el7.x86_64.rpm
+### NVidia driver
+# https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=CentOS&target_version=7&target_type=rpmlocal
+## runfile (local)
+# http://us.download.nvidia.com/tesla/410.129/NVIDIA-Linux-x86_64-410.129-diagnostic.run
 # nvidia driver, use runfile instead
 # http://us.download.nvidia.com/tesla/440.33.01/nvidia-driver-local-repo-rhel7-440.33.01-1.0-1.x86_64.rpm
 "
-
 dl_links=()
 while read -r line; do
    if [[ $line != "#"* ]]; then
@@ -87,24 +65,19 @@ while read -r line; do
    fi
 done <<< "$dl_list"
 
-### NVidia driver
-# https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=CentOS&target_version=7&target_type=rpmlocal
-# rpm (local)
-# RUN wget -N http://us.download.nvidia.com/tesla/440.33.01/nvidia-driver-local-repo-rhel7-440.33.01-1.0-1.x86_64.rpm
-## runfile (local)
-# http://us.download.nvidia.com/tesla/410.129/NVIDIA-Linux-x86_64-410.129-diagnostic.run
-### cuda driver
-# wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda-repo-rhel7-10-2-local-10.2.89-440.33.01-1.0-1.x86_64.rpm
-# sudo rpm -i cuda-repo-rhel7-10-2-local-10.2.89-440.33.01-1.0-1.x86_64.rpm
-# sudo yum clean all
-# sudo yum -y install nvidia-driver-latest-dkms cuda
-# sudo yum -y install cuda-drivers
+kernel_packages=$(cat kernel_packages_list.txt | xargs)
 
 RUN mkdir -p download
 RUN cd download
 for url in ${dl_links[@]}; do
-    RUN wget -N ${url}
+    RUN wget -N ${url} &
 done
+
+for url in ${kernel_packages}; do
+    RUN wget -N ${url} &
+done
+
+RUN wait
 RUN cd ..
 
 repo_dir="offline_repo"
