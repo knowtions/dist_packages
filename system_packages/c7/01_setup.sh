@@ -23,6 +23,7 @@ RUN yum update -y
 RUN yum install -y epel-release
 RUN yum install -y \
     vim \
+    pigz \
     sudo \
     wget \
     yum-utils \
@@ -94,5 +95,5 @@ RUN yumdownloader --resolve --destdir ${repo_path} ${all_pkgs_wo_py3}
 RUN createrepo ${repo_path}
 RUN chmod -R 555 "${repo_path}/.."
 RUN cd "${repo_path}/.."
-RUN tar -zcf yum_archives.tar.gz ${repo_dir}
+RUN tar -cf - ${repo_dir} | pigz > yum_archives.tar.gz
 echo All Done!
