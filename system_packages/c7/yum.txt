@@ -15,6 +15,7 @@ docker-ce
 docker-ce-cli
 elfutils-libelf
 elfutils-libelf-devel
+elfutils-libs
 gcc
 glibc
 glibc-common
@@ -43,7 +44,13 @@ nginx-mod-http-perl
 nginx-mod-http-xslt-filter
 nginx-mod-mail
 nginx-mod-stream
+nss
+nss-pem
+nss-softokn
 nss-softokn-freebl
+nss-sysinit
+nss-tools
+nss-util
 nvidia-container-runtime
 nvidia-container-toolkit
 pciutils
@@ -132,6 +139,7 @@ python3-pip
 python3-rpm-generators
 python3-rpm-macros
 python3-setuptools
+readline
 screen
 vim
 vim-common

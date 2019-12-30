@@ -101,8 +101,8 @@ RUN mkdir -p ${repo_path}
 RUN mv -f ${repo_path} ${repo_path}.bak
 RUN mkdir -p ${repo_path}
 cp -rf download/*.rpm ${repo_path}
-RUN yumdownloader --resolve --destdir ${repo_path} ${all_pkgs_wi_py3}
-RUN yumdownloader --resolve --destdir ${repo_path} ${all_pkgs_wo_py3}
+RUN yumdownloader -x '*i686' --resolve --destdir ${repo_path} ${all_pkgs_wi_py3}
+RUN yumdownloader -x '*i686' --resolve --destdir ${repo_path} ${all_pkgs_wo_py3}
 RUN createrepo ${repo_path}
 RUN cd "${repo_path}/.."
 RUN chmod -R 755 .
