@@ -104,7 +104,7 @@ cp -rf download/*.rpm ${repo_path}
 RUN yumdownloader --resolve --destdir ${repo_path} ${all_pkgs_wi_py3}
 RUN yumdownloader --resolve --destdir ${repo_path} ${all_pkgs_wo_py3}
 RUN createrepo ${repo_path}
-RUN chmod -R 555 "${repo_path}/.."
+RUN chmod -R 755 "${repo_path}/.."
 RUN cd "${repo_path}/.."
-RUN tar -cf - ${repo_dir} | pigz > yum_archives.tar.gz
+tar -cf - ${repo_dir} | pigz > yum_archives.tar.gz
 echo All Done!
