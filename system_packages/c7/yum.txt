@@ -13,8 +13,6 @@ device-mapper-persistent-data
 dkms
 docker-ce
 docker-ce-cli
-elfutils-libelf==0.172-2.el7
-elfutils-libelf-devel==0.172-2.el7
 elfutils-libelf
 elfutils-libelf-devel
 gcc

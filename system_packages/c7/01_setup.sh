@@ -52,12 +52,23 @@ RUN yum install -y http://www.pgpool.net/yum/rpms/4.1/redhat/rhel-7-x86_64/pgpoo
 RUN yum install -y https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm || true
 
 dl_list="
-### NVidia driver
-# https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=CentOS&target_version=7&target_type=rpmlocal
-## runfile (local)
-# http://us.download.nvidia.com/tesla/410.129/NVIDIA-Linux-x86_64-410.129-diagnostic.run
-# nvidia driver, use runfile instead
-# http://us.download.nvidia.com/tesla/440.33.01/nvidia-driver-local-repo-rhel7-440.33.01-1.0-1.x86_64.rpm
+# Required by Nvidia driver and runtime
+http://vault.centos.org/7.0.1406/os/x86_64/Packages/elfutils-libelf-0.158-3.el7.x86_64.rpm
+http://vault.centos.org/7.0.1406/os/x86_64/Packages/elfutils-libelf-devel-0.158-3.el7.x86_64.rpm
+http://vault.centos.org/7.1.1503/os/x86_64/Packages/elfutils-libelf-0.160-1.el7.x86_64.rpm
+http://vault.centos.org/7.1.1503/os/x86_64/Packages/elfutils-libelf-devel-0.160-1.el7.x86_64.rpm
+http://vault.centos.org/7.2.1511/os/x86_64/Packages/elfutils-libelf-0.163-3.el7.x86_64.rpm
+http://vault.centos.org/7.2.1511/os/x86_64/Packages/elfutils-libelf-devel-0.163-3.el7.x86_64.rpm
+http://vault.centos.org/7.3.1611/os/x86_64/Packages/elfutils-libelf-0.166-2.el7.x86_64.rpm
+http://vault.centos.org/7.3.1611/os/x86_64/Packages/elfutils-libelf-devel-0.166-2.el7.x86_64.rpm
+http://vault.centos.org/7.4.1708/os/x86_64/Packages/elfutils-libelf-0.168-8.el7.x86_64.rpm
+http://vault.centos.org/7.4.1708/os/x86_64/Packages/elfutils-libelf-devel-0.168-8.el7.x86_64.rpm
+http://vault.centos.org/7.5.1804/os/x86_64/Packages/elfutils-libelf-0.170-4.el7.x86_64.rpm
+http://vault.centos.org/7.5.1804/os/x86_64/Packages/elfutils-libelf-devel-0.170-4.el7.x86_64.rpm
+http://vault.centos.org/7.6.1810/os/x86_64/Packages/elfutils-libelf-0.172-2.el7.x86_64.rpm
+http://vault.centos.org/7.6.1810/os/x86_64/Packages/elfutils-libelf-devel-0.172-2.el7.x86_64.rpm
+http://mirror.centos.org/centos-7/7.7.1908/os/x86_64/Packages/elfutils-libelf-0.176-2.el7.x86_64.rpm
+http://mirror.centos.org/centos-7/7.7.1908/os/x86_64/Packages/elfutils-libelf-devel-0.176-2.el7.x86_64.rpm
 "
 dl_links=()
 while read -r line; do
