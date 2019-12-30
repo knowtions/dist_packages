@@ -137,3 +137,4 @@ vim
 vim-common
 vim-enhanced
 vim-filesystem
+which
