@@ -1,3 +1,4 @@
+runfile local
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install ./epel-release-latest-*.noarch.rpm
 
@@ -40,3 +41,94 @@ systemctl restart docker
 #  docker_runtimes: '"runtimes": {"nvidia": {"path": "/usr/bin/nvidia-container-runtime", "runtimeArgs": []}},'
 ## test nvidia runtime
 ## docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi 
+
+
+---
+rpm local (Not work)
+https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=RHEL&target_version=7&target_type=rpmlocal
+
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install epel-release-latest-7.noarch.rpm
+
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/vulkan-filesystem-1.1.97.0-1.el7.noarch.rpm	
+sudo rpm --install vulkan-filesystem-1.1.97.0-1.el7.noarch.rpm	
+
+wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda-repo-rhel7-10-2-local-10.2.89-440.33.01-1.0-1.x86_64.rpm
+sudo rpm -i cuda-repo-rhel7-10-2-local-10.2.89-440.33.01-1.0-1.x86_64.rpm
+sudo yum clean all
+sudo yum -y install nvidia-driver-latest-dkms cuda
+sudo yum -y install cuda-drivers
+
+
+
+=======================================================================================================================================
+ Package                                    Arch        Version                           Repository                              Size
+=======================================================================================================================================
+Installing:
+ nvidia-driver-latest-dkms                  x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01      5.3 M
+Installing for dependencies:
+ cpp                                        x86_64      4.8.5-39.el7                      rhui-REGION-rhel-server-releases       6.0 M
+ dkms                                       noarch      2.7.1-1.el7                       epel                                    75 k
+ elfutils-libelf-devel                      x86_64      0.176-2.el7                       rhui-REGION-rhel-server-releases        39 k
+ gcc                                        x86_64      4.8.5-39.el7                      rhui-REGION-rhel-server-releases        16 M
+ glibc-devel                                x86_64      2.17-292.el7                      rhui-REGION-rhel-server-releases       1.1 M
+ glibc-headers                              x86_64      2.17-292.el7                      rhui-REGION-rhel-server-releases       687 k
+ kernel-debug-devel                         x86_64      3.10.0-1062.9.1.el7               rhui-REGION-rhel-server-releases        18 M
+ kernel-headers                             x86_64      3.10.0-1062.9.1.el7               rhui-REGION-rhel-server-releases       8.7 M
+ kmod-nvidia-latest-dkms                    x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01       14 M
+ libX11                                     x86_64      1.6.7-2.el7                       rhui-REGION-rhel-server-releases       607 k
+ libX11-common                              noarch      1.6.7-2.el7                       rhui-REGION-rhel-server-releases       164 k
+ libXau                                     x86_64      1.0.8-2.1.el7                     rhui-REGION-rhel-server-releases        29 k
+ libXdamage                                 x86_64      1.1.4-4.1.el7                     rhui-REGION-rhel-server-releases        20 k
+ libXdmcp                                   x86_64      1.1.2-6.el7                       rhui-REGION-rhel-server-releases        34 k
+ libXext                                    x86_64      1.3.3-3.el7                       rhui-REGION-rhel-server-releases        39 k
+ libXfixes                                  x86_64      5.0.3-1.el7                       rhui-REGION-rhel-server-releases        18 k
+ libXfont2                                  x86_64      2.0.3-1.el7                       rhui-REGION-rhel-server-releases       143 k
+ libXxf86vm                                 x86_64      1.1.4-1.el7                       rhui-REGION-rhel-server-releases        18 k
+ libdrm                                     x86_64      2.4.97-2.el7                      rhui-REGION-rhel-server-releases       151 k
+ libepoxy                                   x86_64      1.5.2-1.el7                       rhui-REGION-rhel-server-releases       211 k
+ libfontenc                                 x86_64      1.1.3-3.el7                       rhui-REGION-rhel-server-releases        31 k
+ libglvnd                                   x86_64      1:1.0.1-0.8.git5baa1e5.el7        rhui-REGION-rhel-server-releases        90 k
+ libglvnd-egl                               x86_64      1:1.0.1-0.8.git5baa1e5.el7        rhui-REGION-rhel-server-releases        44 k
+ libglvnd-gles                              x86_64      1:1.0.1-0.8.git5baa1e5.el7        rhui-REGION-rhel-server-releases        34 k
+ libglvnd-glx                               x86_64      1:1.0.1-0.8.git5baa1e5.el7        rhui-REGION-rhel-server-releases       125 k
+ libglvnd-opengl                            x86_64      1:1.0.1-0.8.git5baa1e5.el7        rhui-REGION-rhel-server-releases        43 k
+ libmpc                                     x86_64      1.0.1-3.el7                       rhui-REGION-rhel-server-releases        51 k
+ libpciaccess                               x86_64      0.14-1.el7                        rhui-REGION-rhel-server-releases        26 k
+ libtirpc                                   x86_64      0.2.4-0.16.el7                    rhui-REGION-rhel-server-releases        89 k
+ libvdpau                                   x86_64      1.1.1-3.el7                       rhui-REGION-rhel-server-releases        34 k
+ libwayland-client                          x86_64      1.15.0-1.el7                      rhui-REGION-rhel-server-releases        33 k
+ libwayland-server                          x86_64      1.15.0-1.el7                      rhui-REGION-rhel-server-releases        39 k
+ libxcb                                     x86_64      1.13-1.el7                        rhui-REGION-rhel-server-releases       214 k
+ libxkbfile                                 x86_64      1.0.9-3.el7                       rhui-REGION-rhel-server-releases        83 k
+ libxshmfence                               x86_64      1.2-1.el7                         rhui-REGION-rhel-server-releases       7.1 k
+ mesa-libEGL                                x86_64      18.3.4-5.el7                      rhui-REGION-rhel-server-releases       109 k
+ mesa-libGL                                 x86_64      18.3.4-5.el7                      rhui-REGION-rhel-server-releases       165 k
+ mesa-libgbm                                x86_64      18.3.4-5.el7                      rhui-REGION-rhel-server-releases        39 k
+ mesa-libglapi                              x86_64      18.3.4-5.el7                      rhui-REGION-rhel-server-releases        45 k
+ mpfr                                       x86_64      3.1.1-4.el7                       rhui-REGION-rhel-server-releases       203 k
+ nvidia-driver-latest-dkms-NVML             x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01      529 k
+ nvidia-driver-latest-dkms-NvFBCOpenGL      x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01      142 k
+ nvidia-driver-latest-dkms-cuda             x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01      400 k
+ nvidia-driver-latest-dkms-cuda-libs        x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01       34 M
+ nvidia-driver-latest-dkms-devel            x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01       19 k
+ nvidia-driver-latest-dkms-libs             x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01       80 M
+ nvidia-modprobe-latest-dkms                x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01       70 k
+ nvidia-persistenced-latest-dkms            x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01       94 k
+ nvidia-xconfig-latest-dkms                 x86_64      3:440.33.01-1.el7                 cuda-10-2-local-10.2.89-440.33.01      272 k
+ pixman                                     x86_64      0.34.0-1.el7                      rhui-REGION-rhel-server-releases       248 k
+ xkeyboard-config                           noarch      2.24-1.el7                        rhui-REGION-rhel-server-releases       834 k
+ xorg-x11-server-Xorg                       x86_64      1.20.4-7.el7                      rhui-REGION-rhel-server-releases       1.5 M
+ xorg-x11-server-common                     x86_64      1.20.4-7.el7                      rhui-REGION-rhel-server-releases        55 k
+ xorg-x11-xkb-utils                         x86_64      7.7-14.el7                        rhui-REGION-rhel-server-releases       103 k
+ yum-plugin-nvidia                          noarch      0.5-1.el7                         cuda-10-2-local-10.2.89-440.33.01      9.8 k
+ zlib-devel                                 x86_64      1.2.7-18.el7                      rhui-REGION-rhel-server-releases        50 k
+Updating for dependencies:
+ elfutils-libelf                            x86_64      0.176-2.el7                       rhui-REGION-rhel-server-releases       194 k
+ elfutils-libs                              x86_64      0.176-2.el7                       rhui-REGION-rhel-server-releases       291 k
+ glibc                                      x86_64      2.17-292.el7                      rhui-REGION-rhel-server-releases       3.6 M
+ glibc-common                               x86_64      2.17-292.el7                      rhui-REGION-rhel-server-releases        11 M
+ libgcc                                     x86_64      4.8.5-39.el7                      rhui-REGION-rhel-server-releases       102 k
+ libgomp                                    x86_64      4.8.5-39.el7                      rhui-REGION-rhel-server-releases       158 k
+Transaction Summary
+=======================================================================================================================================
