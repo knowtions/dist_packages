@@ -11,6 +11,8 @@ function RUN(){
   echo "----------"
   $@ || (echo "Failed with command -- $@" ; false )
 }
+RUN subscription-manager register --username alvin_wu --password SdU9j3zZCj --auto-attach || true
+RUN subscription-manager repos --enable rhel-7-server-optional-rpms --enable rhel-server-rhscl-7-rpms
 
 RUN yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
@@ -21,9 +23,9 @@ RUN yum clean all
 RUN yum-complete-transaction
 RUN yum update -y 
 RUN yum install -y wget
-RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-# RUN rpm -ivh --replacepkgs epel-release-latest-7.noarch.rpm
-RUN yum install -y epel-release
+RUN wget -O https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN rpm -ivh --replacepkgs epel-release-latest-7.noarch.rpm
+# RUN yum install -y epel-release
 RUN yum install -y \
     vim \
     pigz \
@@ -54,7 +56,6 @@ RUN yum install -y http://www.pgpool.net/yum/rpms/4.1/redhat/rhel-7-x86_64/pgpoo
 # postgresql 10
 # RUN yum install -y https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm || true
 RUN yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm || true
-
 
 dl_list="
 # Required by Nvidia driver and runtime

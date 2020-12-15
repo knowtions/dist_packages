@@ -23,6 +23,7 @@ gpm-libs
 htop
 initscripts
 iptables
+iptables-services
 iputils
 kernel-debug-devel
 kernel-devel
@@ -85,6 +86,7 @@ perl-threads-shared
 pgpool-II-pg10
 pgpool-II-pg10-extensions
 postgresql10
+postgresql10-client
 postgresql10-libs
 postgresql95
 postgresql95-libs
